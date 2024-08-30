@@ -99,6 +99,7 @@ class NasabahController extends Controller
                 'jenis_kelamin' => $request->gender == 'l' ? 'laki-laki' : 'wanita',
                 'pekerjaan_id' => $request->occuption,
                 'alamat_id' => $detailAddress->id,
+                'cabang_id' => \Auth::user()->cabang_id,
                 'nominal_setor' => $request->nominal_store,
             ]);
 
@@ -164,6 +165,7 @@ class NasabahController extends Controller
         $getIdAddress->tanggal_lahir = $request->date_of_birth;
         $getIdAddress->jenis_kelamin = $request->gender == 'l' ? 'laki-laki' : 'wanita';
         $getIdAddress->pekerjaan_id = $request->occuption;
+        $getIdAddress->cabang_id = \Auth::user()->cabang_id;
         $getIdAddress->nominal_setor = $request->nominal_store;
         $getIdAddress->save();
 
